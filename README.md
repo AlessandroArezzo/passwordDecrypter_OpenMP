@@ -11,16 +11,16 @@ To use the code you need to have installed:
 
 <ul>
 <li><b>Open SSL library:</b> for using the DES_fcrypt () function in the decryptParallel () method located in the Decrypter.cpp file.</li>
-<li><b>Open MP framework:</b> for the parallel implementation</li>
+<li><b>Open MP framework:</b> for the parallel implementation.</li>
 </ul>
 
 <h2>How to use the code</h2>
 To execute the code simply insert the following parameters in order:
 
 <ul>
-<li>Number of tests to be performed for each word in a characterizing position (first phase of testing). Select a number less than or equal to 0 to ignore this testing phase</li>
-<li>Number of tests to be performed for each word randomly chosen in the dataset (second phase of testing). Select a number less than or equal to 0 to ignore this testing phase </li>
-<li>Number of words to choose randomly (second phase of testing)</li>
+<li>Number of tests to be performed for each word in a characterizing position (first phase of testing). Select a number less than or equal to 0 to ignore this testing phase. </li>
+<li>Number of tests to be performed for each word randomly chosen in the dataset (second phase of testing). Select a number less than or equal to 0 to ignore this testing phase. </li>
+<li>Number of words to choose randomly (second phase of testing).</li>
 </ul>
 
 <h2>Other information</h2>
