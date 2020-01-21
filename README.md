@@ -15,7 +15,7 @@ To use the code you need to have installed:
 </ul>
 
 <h2>How to use the code</h2>
-To execute the code simply supply the following parameters in order:
+To execute the code simply insert the following parameters in order:
 
 <ul>
 <li>Number of tests to be performed for each word in a characterizing position (first phase of testing). Select a number less than or equal to 0 to ignore this testing phase</li>
