@@ -45,8 +45,7 @@ int Decrypter::getSize() {
 vector<long> Decrypter::decryptSequential(vector<string> passwordsToCrack,int numTest) {
     vector<long> timeDecrypt;
     string password;
-    long sumTimeDecrypt=0;
-    long meanTimeForOnePassword=0;
+    long sumTimeDecrypt=0, meanTimeForOnePassword=0;
     timeDecrypt.reserve(passwordsToCrack.size());
 
     for(int i=0;i<passwordsToCrack.size();i++) {
@@ -57,7 +56,7 @@ vector<long> Decrypter::decryptSequential(vector<string> passwordsToCrack,int nu
             for(int k=0;k<vectorPass.size();k++){
                 string encryption=crypt(vectorPass[k].c_str(), salt.c_str());
                 if( strcmp(encryption.c_str(), passwordsToCrack[i].c_str()) == 0){
-                    //cout<<"Hash found: "<<encryptionAttempt<<" --> Password: "<<vectorPass[k]<<" in position "<<k<<endl;
+                    //cout<<"Hash found: "<<encryption<<" --> Password: "<<vectorPass[k]<<endl;
                     break;
                 }
             }
@@ -68,9 +67,7 @@ vector<long> Decrypter::decryptSequential(vector<string> passwordsToCrack,int nu
         meanTimeForOnePassword=sumTimeDecrypt/numTest;
         timeDecrypt.push_back(meanTimeForOnePassword);
     }
-
     return timeDecrypt;
-
 }
 
 
@@ -78,12 +75,11 @@ vector<long> Decrypter::decryptSequential(vector<string> passwordsToCrack,int nu
 vector<long> Decrypter::decryptParallel(vector<string> passwordsToCrack, int numTest, int numThreads) {
     vector<long> timeDecrypt;
     char *encryption;
-    long sumTimeDecrypt=0;
-    long meanTimeForOnePassword=0;
-    timeDecrypt.reserve(passwordsToCrack.size());
-    int threadsElements = static_cast<int>((double)vectorPass.size() / (double)numThreads);
+    long sumTimeDecrypt=0, meanTimeForOnePassword=0;
     string hash;
     volatile bool flag;
+    int threadsElements = static_cast<int>((double)vectorPass.size() / (double)numThreads);
+    timeDecrypt.reserve(passwordsToCrack.size());
     for (int i = 0; i < passwordsToCrack.size(); i++) {
         hash=passwordsToCrack[i];
         sumTimeDecrypt = 0;
@@ -101,8 +97,6 @@ vector<long> Decrypter::decryptParallel(vector<string> passwordsToCrack, int num
                         DES_fcrypt(vectorPass[index].c_str(), salt.c_str(),encryption);
                         if (strcmp(encryption, hash.c_str()) == 0) {
                             flag = true;
-                            /*printf("Hash found: %s -->  Password:%s\n", encryption,
-                                   vectorPass[wordIndex].c_str());*/
                             break;
                         }
                     }
@@ -120,4 +114,3 @@ vector<long> Decrypter::decryptParallel(vector<string> passwordsToCrack, int num
     }
     return timeDecrypt;
 }
-

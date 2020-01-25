@@ -57,7 +57,7 @@ int main(int argc, char** argv) {
     string salt="aa";
     Decrypter* decrypter=new Decrypter("../input/passwords.txt",salt);
 
-    cout<<"START SEQUENTIAL DECRYPTION...\n";
+    cout<<"START SEQUENTIAL DECRYPTION...\n"; 
     // Sequential decription of special passwords
     if(num_exp>0) {
         passwords_to_crack={"password","jrock521","10022513"};
