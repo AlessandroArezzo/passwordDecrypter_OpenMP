@@ -24,4 +24,4 @@ To execute the code simply insert the following parameters in order:
 </ul>
 
 <h2>Other information</h2>
-The results and other implementation details are available in the report found at the link: <b>(Still to be inserted)</b>
+The results and other implementation details are available in the report found at the link: <a href="https://github.com/AlessandroArezzo/passwordDecrypter_OpenMP/blob/master/Relazione_passwordDecryper.pdf">https://github.com/AlessandroArezzo/passwordDecrypter_OpenMP/blob/master/Relazione_passwordDecryper.pdf</a>
